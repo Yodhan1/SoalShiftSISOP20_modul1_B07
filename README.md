@@ -1,2 +1,9 @@
 # SoalShiftSISOP20_modul1_B07
-#SoalShiftSISOP20_modul1_B07
+## Soal1:
+### soal1.sh
+## Soal2:
+### soal2.sh
+### soal2_enkripsi.sh
+### soal2_dekripsi.sh
+## Soal3:
+### soal3.sh
