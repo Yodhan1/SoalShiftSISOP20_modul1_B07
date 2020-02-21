@@ -123,3 +123,7 @@ untuk membuat file dengan nama PDKT_Kusuma_i
 lokasi link
 ```-a /home/yodhan/workspace/Soal3/wget.log```
 menyimpan log dalam bentuk wget.log
+
+### CorntabSoal3
+```5 6,14,22 * * 0-5 /bin/bash /home/yodhan/workspace/soal3.sh```
+menjalankan kodingan mulai dari jam 06:05 dan 8 jam kelipatannya kecuali hari sabtu
