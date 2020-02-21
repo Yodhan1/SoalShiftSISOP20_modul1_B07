@@ -28,7 +28,7 @@ else
 echo "salah"
 fi
 ```
-Syarat 
+Syarat nama file yang bisa dibuat adalah semuanya alphabet, jika syarat terpenuhi maka hasil dari password yang telah di-generate akan disimpan dalam file .txt yang telah kita buat. Jika nama file nya tidak memenuhi syarat, maka akan keluar "salah".
 ### soal2_enkripsi.sh
 ### soal2_dekripsi.sh
 ## Soal3:
