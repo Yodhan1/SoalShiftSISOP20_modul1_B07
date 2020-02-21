@@ -81,6 +81,45 @@ fi
 ```
 Syarat nama file yang bisa dibuat adalah semuanya alphabet, jika syarat terpenuhi maka hasil dari password yang telah di-generate akan disimpan dalam file .txt yang telah kita buat. Jika nama file nya tidak memenuhi syarat, maka akan keluar "salah".
 ### soal2_enkripsi.sh
+```
+#!/bin/bash
+Jam=`date '+%H'`
+String=${1%.*}
+Bawah="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+atas=$Bawah | tr "a-z" "A-Z"
+#mv "$1" "$($String | tr "a-z" "${Bawah:$(Jam):26}" | tr "A-Z" "${Atas:$(Jam):26}").txt"
+```
+```Jam=`date '+%H'```
+mengambil jam sekarang untuk di decode
+```String=${1%.*}```
+menghilangkan txt di belakang file
+```
+Bawah="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+atas=$Bawah | tr "a-z" "A-Z"
+```
+memasukan batasan dari abjad
+```#mv```
+mengubah nama file dengan mv
+```"$($String | tr "a-z" "${Bawah:$(Jam):26}" | tr "A-Z" "${Atas:$(Jam):26}").txt"```
+menenkripte file menjadi nama lain dengan bantuan jam
+
 ### soal2_dekripsi.sh
 ## Soal3:
 ### soal3.sh
+```
+#!/bin/bash
+for ((i=1 ; $i<29 ;i++))
+do
+wget -O "/home/yodhan/workspace/Soal3/PDKT_Kusuma_$i" http://loremflickr.com/320.240/cat -a /home/yodhan/workspace/Soal3/wget.log
+done
+```
+```for ((i=1 ; $i<29 ;i++))```
+untuk mengambil donwload file sebanyak 28 buah
+```wget```
+mengambil file dari internet
+```-O "/home/yodhan/workspace/Soal3/PDKT_Kusuma_$i" ```
+untuk membuat file dengan nama PDKT_Kusuma_i
+```http://loremflickr.com/320.240/cat```
+lokasi link
+```-a /home/yodhan/workspace/Soal3/wget.log```
+menyimpan log dalam bentuk wget.log
