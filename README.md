@@ -110,15 +110,19 @@ atas=$Bawah | tr "a-z" "A-Z"
 ```
 ```Jam=`date '+%H'```
 mengambil jam sekarang untuk di decode
+
 ```String=${1%.*}```
 menghilangkan txt di belakang file
+
 ```
 Bawah="abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
 atas=$Bawah | tr "a-z" "A-Z"
 ```
 memasukan batasan dari abjad
+
 ```#mv```
 mengubah nama file dengan mv
+
 ```"$($String | tr "a-z" "${Bawah:$(Jam):26}" | tr "A-Z" "${Atas:$(Jam):26}").txt"```
 menenkripte file menjadi nama lain dengan bantuan jam
 
@@ -136,14 +140,19 @@ grep "Location: /cache" wget.log > location.log
 ```
 ```for ((i=1 ; $i<29 ;i++))```
 untuk mengambil donwload file sebanyak 28 buah
+
 ```wget```
 mengambil file dari internet
+
 ```-O "/home/yodhan/workspace/Soal3/PDKT_Kusuma_$i" ```
 untuk membuat file dengan nama PDKT_Kusuma_i
+
 ```http://loremflickr.com/320/240/cat```
 lokasi link
+
 ```-a /home/yodhan/workspace/Soal3/wget.log```
 menyimpan log dalam bentuk wget.log
+
 ```grep "Location: /cache" wget.log > location.log```
 menyimpan hasil location ke location.log
 
@@ -196,37 +205,54 @@ cat wget.log >> wget.log.bak
 ```
 ```tempkenangan=`ls -1 "kenangan" | wc -l ` ```
 mendapatkan jumlah file di kenangan
+
 ```tempduplicate=`ls -1 "duplicate" | wc -l  ` ```
 mendapatkan jumlah file di duplicate
+
 ```if [ $tempkenangan -eq 0 ]; then```
 jika kenangan kosong maka diset valuenya 1
+
 ```if [ $tempduplicate -eq 0 ]; then```
 jika duplicate kosong maka diset valuenya 1
+
 ```if [ -f PDKT_Kusuma_$i ]; then```
 jika ada file i maka kodingan lanjut
+
 ```count=0```
 untuk menghitung kesamaan dalam file kusuma
+
 ```[ -f PDKT_Kusuma_$j ] && [ $i -ne $j ]``` 
 untuk mengecek apakah filenya ada dan tidak sama dengan yang dipakai
+
 ```[ `cat location.log | head -$i | tail -1` -eq `cat location.log | head -$j | tail -1`];then```
 mengecek di baris mana file tersebut berada dalam log dan mengambil hanya baris tersebut
+
 ```count=$((count+1))```
 jika ditemukan kemiripan maka akan menambah count
+
 ```if [ $count -gt 1];then```
 jika sama lebih dari 2 maka 
+
 ```rm "PDKT_Kusuma_$i"```
 delete file
+
 ```elif [ $count -eq 1 ]; then```
 jika hanya mirip 1 file 
+
 ```mv "PDKT_Kusuma_$i" "./duplicate/Duplicate_$tempduplicate"```
 memindahkan file kedalam duplicate
+
 ```tempdpulicate=$(($tempduplicate+1))```
 menaikan jumlah file duplicate
+
 ```if [ -f PDKT_Kusuma_$i ]; then```
 jika mengecek apakah filenya masih ada
+
 ```mv "PDKT_Kusuma_$i" "./kenangan/Kenangan_$tempkenangan"```
 untuk memindahkan file ke kenangan
+
 ```$tempkenangan=$((tempkenangan+1))```
 menambahkan kenangan
+
 ```mv wget.log  wget.log.bak```
 memindahkan file log kedalam wget.log.bak
